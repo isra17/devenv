@@ -1,2 +1,22 @@
-plugins = []
+default_provider = "local"
 
+[plugins.scripts-target]
+root = "./scripts"
+[plugins.kubernetes]
+[plugins.host-provider]
+[plugins.telepresence-provider]
+
+[providers.local]
+type = "host"
+
+[providers.minikube]
+type = "telepresence"
+environment = "dev"
+
+[providers.staging]
+type = "telepresence"
+environment = "staging"
+
+[providers.staging]
+type = "telepresence"
+environment = "production"

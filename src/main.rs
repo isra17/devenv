@@ -3,7 +3,6 @@ use std::path::PathBuf;
 use structopt::StructOpt;
 
 mod config;
-mod errors;
 
 #[derive(Debug, StructOpt)]
 enum Command {
@@ -33,3 +32,14 @@ fn main(args: Args) -> Result<(), Box<dyn std::error::Error>> {
     println!("{:?}", config);
     Ok(())
 }
+
+# dev run firework
+# dev run staging:firework
+          ^       ^
+          |       |
+       Provider   |
+                Target
+
+# dev run local:firework -- -p 8080
+# dev run firework -e "PYRO_DATABASE__URL={staging.postgresql.url}"
+# dev run firework -e "PYRO_DATABASE__URL={staging.postgresql.url}"
